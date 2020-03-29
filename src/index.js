@@ -72,6 +72,10 @@ const stylesApp = {
     }
 };
 
+function buttonText(state) {
+    return state ? 'Remove' : 'Add';
+}
+
 function App() {
     const [doCComp, setDoCComp] = useState(true);
     const [doFComp, setDoFComp] = useState(true);
@@ -79,8 +83,8 @@ function App() {
     return (
         <div>
             <div className="controls">
-                <button onClick={() => setDoCComp(!doCComp)}>Class Component</button>
-                <button onClick={() => setDoFComp(!doFComp)}>Functional Component</button>
+                <button onClick={() => setDoCComp(!doCComp)}>{buttonText(doCComp)} Class Component</button>
+                <button onClick={() => setDoFComp(!doFComp)}>{buttonText(doFComp)} Functional Component</button>
             </div>
             <hr />
             {doCComp && <ClassComponent />}
